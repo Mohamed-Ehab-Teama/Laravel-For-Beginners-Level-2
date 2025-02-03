@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\ServiceProvider;
 
+dump("Starge 06");
+
+
 class BroadcastServiceProvider extends ServiceProvider
 {
     /**
