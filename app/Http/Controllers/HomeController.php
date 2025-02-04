@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-dump("Starge 10");
+// dump("Starge 10");
 
 
 class HomeController extends Controller

@@ -16,7 +16,7 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-dump("Starge 09");
+// dump("Starge 09");
 
 
 Route::get('/', HomeController::class);
@@ -41,3 +41,5 @@ Route::prefix('dashboard')->group(function () {
 // });
 
 // require __DIR__.'/auth.php';
+require __DIR__.'/admin.php';
+require __DIR__.'/merchant.php';

@@ -7,7 +7,7 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
-dump("Starge 07");
+// dump("Starge 07");
 
 
 class EventServiceProvider extends ServiceProvider
