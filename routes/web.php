@@ -19,8 +19,8 @@ use App\Http\Controllers\ProfileController;
 // dump("Starge 09");
 
 
-Route::get('/', HomeController::class);
-Route::get('/users/{id}/{name}', HomeController::class);
+Route::get('/', HomeController::class)->name('test');
+Route::get('/users/{id}/{name}', HomeController::class)->middleware(['throttle:watch_your_limit']);
 // Route::get('/users/{id}/{name}', HomeController::class)->whereNumber('id')->whereAlpha('name');
 // Route::get('/users/{id}/{name}', HomeController::class)->where([
 //     'id' => '[0-9]+',
@@ -40,6 +40,11 @@ Route::prefix('dashboard')->group(function () {
 
 });
 
+
+// FallBak Route
+Route::fallback( function() {
+    return to_route('test');
+} );
 
 
 // Route::middleware('auth')->group(function () {
