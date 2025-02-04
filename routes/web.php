@@ -20,6 +20,14 @@ use App\Http\Controllers\ProfileController;
 
 
 Route::get('/', HomeController::class);
+Route::get('/users/{id}/{name}', HomeController::class);
+// Route::get('/users/{id}/{name}', HomeController::class)->whereNumber('id')->whereAlpha('name');
+// Route::get('/users/{id}/{name}', HomeController::class)->where([
+//     'id' => '[0-9]+',
+//     'name' => '[a-zA-Z]+',
+// ]);
+// Route::get('/users/{id}/{name}', HomeController::class)->where('id','[0-9]+');
+// Route::get('/users/{id}/{name}', HomeController::class)->where('name','[a-zA-Z]+');
 
 
 Route::prefix('dashboard')->group(function () {

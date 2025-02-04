@@ -49,5 +49,9 @@ class RouteServiceProvider extends ServiceProvider
                 // ->prefix('merchants')
                 // ->group(base_path('routes/merchant.php'));
         });
+
+        Route::pattern('id', '[0-9]+');
+        Route::pattern('name', '[a-zA-Z]+');
+
     }
 }
