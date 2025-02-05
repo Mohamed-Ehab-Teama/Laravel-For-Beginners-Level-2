@@ -36,7 +36,10 @@ Route::prefix('dashboard')->group(function () {
     Route::view('/', 'dashboard')->name('dashboard');
 
     // ============================================= products
-    Route::resource('products', ProductController::class);
+    Route::get('products/show/{product}', [ProductController::class, 'show'])->name('products.show');
+    Route::resource('products', ProductController::class)->except('show');
+    // Route::get('products/show/{product:name}', [ProductController::class, 'show'])->name('products.show');
+    // Route::resource('products', ProductController::class)->except('show')->parameters(['products' => 'product:name']);
 
 });
 

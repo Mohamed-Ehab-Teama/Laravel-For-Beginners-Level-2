@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Product;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -56,8 +57,13 @@ class RouteServiceProvider extends ServiceProvider
                 // ->group(base_path('routes/merchant.php'));
         });
 
-        Route::pattern('id', '[0-9]+');
-        Route::pattern('name', '[a-zA-Z]+');
+        // Route::pattern('id', '[0-9]+');
+        // Route::pattern('name', '[a-zA-Z]+');
+
+        // Manel Slugs
+        // Route::bind('product', function (string $value) {
+        //     return Product::where('name', str_replace('-', ' ', $value) )->firstOrFail();
+        // });
 
     }
 }
