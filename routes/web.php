@@ -30,10 +30,15 @@ Route::get('/users/{id}/{name}', HomeController::class)->middleware(['throttle:w
 // Route::get('/users/{id}/{name}', HomeController::class)->where('name','[a-zA-Z]+');
 
 
+// Route::view('/test', 'welcome')->middleware('test:Ali,mona,mai');
+
+
+
 Route::prefix('dashboard')->group(function () {
 
     // ==================================== dashboard main page
     Route::view('/', 'dashboard')->name('dashboard');
+    // Route::view('/', 'dashboard')->name('dashboard')->withoutMiddleware('auth');
 
     // ============================================= products
     Route::get('products/show/{product}', [ProductController::class, 'show'])->name('products.show');
@@ -56,6 +61,7 @@ Route::fallback( function() {
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-// require __DIR__.'/auth.php';
+require __DIR__.'/auth.php';
+
 require __DIR__.'/admin.php';
 require __DIR__.'/merchant.php';
