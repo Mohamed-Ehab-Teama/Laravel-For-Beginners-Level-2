@@ -1,5 +1,7 @@
 {{-- dump("Starge 11") --}}
 
+{{-- dump($my_name) --}}
+{{-- dump($specific) --}}
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
