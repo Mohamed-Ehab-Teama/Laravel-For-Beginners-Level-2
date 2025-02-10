@@ -3,6 +3,11 @@
 {{-- dump($my_name) --}}
 {{-- dump($specific) --}}
 
+<!-- Component -->
+<!-- <x-button-component fullName="Mohamed Ehab"></x-button-component>
+<x-button-component fullName="Mr Teama"></x-button-component>
+<x-test-component02></x-test-component02> -->
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
