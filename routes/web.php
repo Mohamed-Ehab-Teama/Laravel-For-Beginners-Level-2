@@ -34,7 +34,7 @@ Route::get('/users/{id}/{name}', HomeController::class)->middleware(['throttle:w
 
 
 
-Route::prefix('dashboard')->group(function () {
+Route::prefix('{locale}/dashboard')->middleware('setLocale')->group(function () {
 
     // ==================================== dashboard main page
     Route::view('/', 'dashboard')->name('dashboard');
@@ -46,7 +46,7 @@ Route::prefix('dashboard')->group(function () {
     // Route::get('products/show/{product:name}', [ProductController::class, 'show'])->name('products.show');
     // Route::resource('products', ProductController::class)->except('show')->parameters(['products' => 'product:name']);
 
-});
+})->where(['locale' => '[a-z](2)']);
 
 
 // FallBak Route

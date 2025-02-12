@@ -27,4 +27,24 @@ class ProductRequest extends FormRequest
             'price' => 'required',
         ];
     }
+
+
+    public function attributes()
+    {
+        return [
+            'name' => __('keywords.name'),
+            'price' => __('keywords.price'),
+        ];
+    }
+    
+    
+    public function messages()
+    {
+        return [
+            'name.required' => __('keywords.name_required_messgae'),
+            'price.required' => __('keywords.price_required_messgae'),
+        ];
+    }
+
+
 }

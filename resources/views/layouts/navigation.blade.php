@@ -21,6 +21,18 @@
                         {{ __('Products') }}
                     </x-nav-link>
                 </div>
+
+                @php
+                    $route = Illuminate\Support\Facades\Route::currentRouteName();
+                    $lang = request()->segment(1) == 'ar' ? 'en' : 'ar' ;
+                @endphp
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route($route , ['locale' => $lang ]) }}" >
+                        {{ strtoupper($lang) }}
+                    </x-nav-link>
+                </div>
+
+
             </div>
 
         </div>
