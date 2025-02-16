@@ -1,3 +1,4 @@
+
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,6 +24,15 @@
                 </div>
 
                 @php
+                    $lang = request()->segment(1) == 'ar' ? 'en' : 'ar' ;
+                @endphp
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL($lang) }}" >
+                        {{ strtoupper($lang) }}
+                    </x-nav-link>
+                </div>
+                
+                <!-- @php
                     $route = Illuminate\Support\Facades\Route::currentRouteName();
                     $lang = request()->segment(1) == 'ar' ? 'en' : 'ar' ;
                 @endphp
@@ -30,7 +40,7 @@
                     <x-nav-link href="{{ route($route , ['locale' => $lang ]) }}" >
                         {{ strtoupper($lang) }}
                     </x-nav-link>
-                </div>
+                </div> -->
 
 
             </div>
