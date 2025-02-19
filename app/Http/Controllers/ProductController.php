@@ -5,9 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Support\Str;
 use App\Http\Requests\ProductRequest;
+use App\Traits\PriceTrait;
+use App\Services\PriceService;
+
+use function App\Helpers\setPriceToUSD;
 
 class ProductController extends Controller
 {
+    // use PriceTrait;
+    // protected $priceService;
+
+    // public function __construct( PriceService $PriceService )
+    // {
+    //     $this->priceService = $PriceService;
+    // }
+
     public function index()
     {
         $products = Product::paginate(10);
@@ -35,6 +47,10 @@ class ProductController extends Controller
     {
         $productData = $request->validated();
         // $productData['slug'] = Str::slug( $productData['name'] , '-');
+
+        // $productData['price_usd'] = $this->setPriceToUSD( $productData['price'] );
+        // $productData['price_usd'] = $this->priceService->setPriceToUSD( $productData['price'] );
+        $productData['price_usd'] = setPriceToUSD( $productData['price'] );
 
         $product = Product::create($productData);
 
