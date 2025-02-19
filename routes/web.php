@@ -34,7 +34,7 @@ Route::get('/users/{id}/{name}', HomeController::class)->middleware(['throttle:w
 
 
 
-Route::prefix('{locale}/dashboard')->middleware('setLocale')->group(function () {
+Route::prefix('/dashboard')->group(function () {
 
     // ==================================== dashboard main page
     Route::view('/', 'dashboard')->name('dashboard');
@@ -46,7 +46,22 @@ Route::prefix('{locale}/dashboard')->middleware('setLocale')->group(function () 
     // Route::get('products/show/{product:name}', [ProductController::class, 'show'])->name('products.show');
     // Route::resource('products', ProductController::class)->except('show')->parameters(['products' => 'product:name']);
 
-})->where(['locale' => '[a-z](2)']);
+});
+
+
+// Route::prefix('/dashboard')->middleware('setLocale')->group(function () {
+
+//     // ==================================== dashboard main page
+//     Route::view('/', 'dashboard')->name('dashboard');
+//     // Route::view('/', 'dashboard')->name('dashboard')->withoutMiddleware('auth');
+
+//     // ============================================= products
+//     Route::get('products/show/{product}', [ProductController::class, 'show'])->name('products.show');
+//     Route::resource('products', ProductController::class)->except('show');
+//     // Route::get('products/show/{product:name}', [ProductController::class, 'show'])->name('products.show');
+//     // Route::resource('products', ProductController::class)->except('show')->parameters(['products' => 'product:name']);
+
+// })->where(['locale' => '[a-z](2)']);
 
 
 // FallBak Route
